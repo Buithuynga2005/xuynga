@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra số nguyên tố</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 20px;
+        }
+        p.round3 {
+  border: 2px solid rgb(100, 107, 180);
+  border-radius: 16px;
+  padding: 8px;
+  margin-right:1000px
+ }
+        p{
+            font-size: 27px;
+        }
+        button{
+           background-color: rgb(144, 150, 223);
+          font-size: 15px;
+      
+         
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <p class="round3">Kiểm tra số nguyên</p>
+        </center>
+    <label for="numberInput">Nhập số:</label>
+    <input type="number" id="numberInput" min="1" />
+    <button onclick="checkPrime()">Kiểm tra</button>
+    
+    <h2 id="result"></h2>
+
+    <script>
+        function checkPrime() {
+            const n = parseInt(document.getElementById('numberInput').value);
+            let isPrime = true;
+
+            if (n <= 1) {
+                isPrime = false;
+            } else {
+                for (let i = 2; i <= Math.sqrt(n); i++) {
+                    if (n % i === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+            }
+
+            document.getElementById('result').innerText = isPrime
+                ? `${n} là số nguyên tố.`
+                : `${n} không phải là số nguyên tố.`;
+        }
+    </script>
+</body>
+</html>

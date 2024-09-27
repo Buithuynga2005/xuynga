@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm UCLN của 2 số</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif5;
+            margin: 20px;
+        }
+        p.round3 {
+  border: 2px solid rgb(100, 107, 180);
+  border-radius: 16px;
+  padding: 8px;
+  margin-right:1000px
+ }
+        p{
+            font-size: 27px;
+        }
+        button{
+           background-color: rgb(144, 150, 223);
+          font-size: 15px;
+      
+         
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <p class="round3">Tìm UCLN của hai số </p>
+        </center>
+    <label for="aInput">Nhập a:</label>
+    <input type="number" id="aInput" min="1" />
+    <br><br>
+    <label for="bInput">Nhập b:</label>
+    <input type="number" id="bInput" min="1" />
+    <br><br>
+    <button onclick="findGCD()">Tìm UCLN</button>
+    
+    <h2 id="result"></h2>
+
+    <script>
+        function findGCD() {
+            const a = parseInt(document.getElementById('aInput').value);
+            const b = parseInt(document.getElementById('bInput').value);
+            
+            let gcd = function(x, y) {
+                while (y !== 0) {
+                    let temp = y;
+                    y = x % y;
+                    x = temp;
+                }
+                return x;
+            };
+
+            const ucln = gcd(a, b);
+            document.getElementById('result').innerText = `UCLN của ${a} và ${b} là: ${ucln}`;
+        }
+    </script>
+</body>
+</html>
